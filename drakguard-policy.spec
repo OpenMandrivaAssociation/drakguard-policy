@@ -1,24 +1,24 @@
+%define	oldname	drakguard
 Summary:	Parental control tool
 Name:		drakguard-policy
 Version:	0.7.7
 Release:	%mkrel 11
-#Source0:  %name-%version.tar.lzma
-
-Source0:	drakguard_netpolice.patch
+Source0:	%{oldname}-%{version}.tar.lzma
+Patch0:		drakguard_netpolice.patch
 Source1:	UpdateBL
 Source2:	OriginalUpdateBL
 Source3:	bigblacklist.tar.gz
 Source4:	badwords.zip
 Source5:	new.zip
 Source6:	extrem.zip
-
 License:	GPL
 Group:		System/Configuration/Other
 Url:		http://www.mandriva.com/
-BuildRequires:	drakguard, dansguardian
 Requires:	drakxtools >= 10.22
 Requires:	drakx-net >= 0.41
-Requires:	drakguard, dansguardian
+BuildRequires:	perl-MDK-Common-devel gettext
+Requires:	dansguardian
+Obsoletes:	drakguard
 BuildRoot:	%_tmppath/%name-%version-buildroot
 BuildArch:	noarch
 
@@ -34,26 +34,26 @@ web sites and restrict connection during a specified timeframe.
 Чтобы убрать фильтры NetPolice удалите из файла /etc/squid/squid.conf строку dns_nameservers 81.176.72.82 81.176.72.83
 
 %prep
-
-#%setup -q
-#%patch0 -p0
+tar -xf %{SOURCE0}
+cd %{oldname}-%{version}
+%patch0 -p0
 
 %build
-#%make
+cd %{oldname}-%{version}
+%make
 
 %install
-#rm -rf %{buildroot}
-#%makeinstall_std
-#%find_lang %name
+rm -rf %{buildroot}
+cd %{oldname}-%{version}
+%makeinstall_std 
+%find_lang %{oldname}
 
 %clean
 rm -rf %{buildroot}
 
-%files -f %{name}.lang
+%files -f %oldname-%version/%{oldname}.lang
 %defattr(-,root,root)
-#%doc NEWS
-#%{_sbindir}/%{name}
-#%{_sbindir}/*
-#/usr/lib/libDrakX/icons/*
-
-
+%doc %{oldname}-%{version}/NEWS
+%{_sbindir}/%{oldname}
+%{_sbindir}/*
+/usr/lib/libDrakX/icons/*

@@ -1,8 +1,8 @@
 %define		original_name	drakguard
-Summary:	Parental control tool
+Summary:	Parental control tool with NetPolice DNS enable
 Name:		drakguard-policy
 Version:	0.7.7
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	%{original_name}-%{version}.tar.lzma
 Patch0:		drakguard_netpolice.patch
 #Source1:	UpdateBL
@@ -23,7 +23,7 @@ BuildArch:	noarch
 
 %description
 This tool allows to configure parental control. It can block access to
-web sites and restrict connection during a specified timeframe.
+web sites and restrict connection during a specified timeframe. This version consist DNS-protect from russian company NetPolice.
 
 %description -l ru
 Этот инструмент позволяет настраивать родительский контролью Он может блокировать

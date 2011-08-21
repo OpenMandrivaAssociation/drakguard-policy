@@ -2,7 +2,7 @@
 Summary:	Parental control tool with NetPolice DNS enable
 Name:		drakguard-policy
 Version:	0.7.7
-Release:	%mkrel 2
+Release:	%mkrel 5
 Source0:	%{original_name}-%{version}.tar.lzma
 Patch0:		drakguard_netpolice.patch
 #Source1:	UpdateBL
@@ -17,7 +17,7 @@ Url:		http://www.mandriva.com/
 Requires:	drakxtools >= 10.22
 Requires:	drakx-net >= 0.41
 BuildRequires:	perl-MDK-Common-devel gettext
-Obsoletes:	drakguard
+Conflicts:	drakguard
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch:	noarch
 

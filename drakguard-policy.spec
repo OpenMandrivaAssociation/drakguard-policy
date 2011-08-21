@@ -2,22 +2,11 @@
 Summary:	Parental control tool with NetPolice DNS enable
 Name:		drakguard-policy
 Version:	0.7.7
-Release:	%mkrel 5
-Source0:	%{original_name}-%{version}.tar.lzma
-Patch0:		drakguard_netpolice.patch
-#Source1:	UpdateBL
-#Source2:	OriginalUpdateBL
-#Source3:	bigblacklist.tar.gz
-#Source4:	badwords.zip
-#Source5:	new.zip
-#Source6:	extrem.zip
+Release:	%mkrel 6
 License:	GPL
 Group:		System/Configuration/Other
 Url:		http://www.mandriva.com/
-Requires:	drakxtools >= 10.22
-Requires:	drakx-net >= 0.41
-BuildRequires:	perl-MDK-Common-devel gettext
-Conflicts:	drakguard
+Requires:	drakguard
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch:	noarch
 
@@ -34,32 +23,12 @@ web sites and restrict connection during a specified timeframe. This version con
 
 %prep
 
-tar -xf %{SOURCE0}
-cd %{original_name}-%{version}
-#%patch0 -p0
-#tar xf %{SOURCE3}
-#unzip -xo %{SOURCE4}
-#unzip -xo %{SOURCE5}
-#unzip -xo %{SOURCE6} -d extrem
-#%setup -q -D -T -c -a0
-%patch0 -p0
+%post
 
-%build
-cd %{original_name}-%{version}
-%make
+echo "dns_nameservers 81.176.72.82 81.176.72.83" >> /etc/squid/squid.conf
 
-%install
-rm -rf %{buildroot}
-cd %{original_name}-%{version}
-%makeinstall_std 
-%find_lang %{original_name}
+%postun
 
-%clean
-rm -rf %{buildroot}
+sed -i 's/dns_nameservers\ 81.176.72.82\ 81.176.72.83//' /etc/squid/squid.conf
 
-%files -f %original_name-%version/%{original_name}.lang
-%defattr(-,root,root)
-%doc %{original_name}-%{version}/NEWS
-%{_sbindir}/%{original_name}
-%{_sbindir}/*
-/usr/lib/libDrakX/icons/*
+%files

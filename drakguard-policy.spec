@@ -12,7 +12,8 @@ BuildArch:	noarch
 
 %description
 This tool allows to configure parental control. It can block access to
-web sites and restrict connection during a specified timeframe. This version consist DNS-protect from russian company NetPolice.
+web sites and restrict connection during a specified timeframe. This version
+consist DNS-protect from russian company NetPolice.
 
 %description -l ru
 Этот инструмент позволяет настраивать родительский контролью Он может блокировать

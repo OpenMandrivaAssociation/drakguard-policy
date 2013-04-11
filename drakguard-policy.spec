@@ -2,12 +2,11 @@
 Summary:	Parental control tool with NetPolice DNS enable
 Name:		drakguard-policy
 Version:	0.7.7
-Release:	%mkrel 6
+Release:	7
 License:	GPL
 Group:		System/Configuration/Other
 Url:		http://www.mandriva.com/
 Requires:	drakguard
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildArch:	noarch
 
 %description
@@ -16,11 +15,12 @@ web sites and restrict connection during a specified timeframe. This version
 consist DNS-protect from russian company NetPolice.
 
 %description -l ru
-Этот инструмент позволяет настраивать родительский контролью Он может блокировать
-доступ к веб сайтам (используя также DNS NetPolice) и ограничивать соединение в
-заданное время, а также запуск программ. 
+Этот инструмент позволяет настраивать родительский контролью Он может
+блокировать доступ к веб сайтам (используя также DNS NetPolice) и
+ограничивать соединение в заданное время, а также запуск программ. 
 
-Чтобы убрать фильтры NetPolice удалите из файла /etc/squid/squid.conf строку dns_nameservers 81.176.72.82 81.176.72.83
+Чтобы убрать фильтры NetPolice удалите из файла /etc/squid/squid.conf строку
+dns_nameservers 81.176.72.82 81.176.72.83
 
 %prep
 

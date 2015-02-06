@@ -1,7 +1,7 @@
 Summary:	Parental control tool with NetPolice DNS enable
 Name:		drakguard-policy
 Version:	0.7.7
-Release:	9
+Release:	10
 License:	GPLv2+
 Group:		System/Configuration/Other
 Url:		http://www.rosalab.ru/

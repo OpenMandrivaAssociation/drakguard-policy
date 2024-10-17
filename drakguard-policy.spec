@@ -4,7 +4,7 @@ Version:	0.7.7
 Release:	10
 License:	GPLv2+
 Group:		System/Configuration/Other
-Url:		http://www.rosalab.ru/
+Url:		https://www.rosalab.ru/
 Requires(post,postun):	squid
 Requires:	drakguard
 BuildArch:	noarch
